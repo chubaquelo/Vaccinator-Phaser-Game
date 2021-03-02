@@ -6,15 +6,23 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    // add logo image
-    this.add.image(400, 200, "logo");
 
-    // display progress bar
+    this.load.image("logo", "./img/vaccinator-title.png");
+    this.load.image("covid", "./assets/img/covid.png");
+    this.load.image("background", "./assets/img/fondo.jpg");
+    this.load.image("illGuy", "./assets/img/ill-guy.fw.png");
+    this.load.image("title", "./assets/img/vaccinator-title.png");
+    this.load.image("vaccine", "./assets/img/vaccine.png");
+    this.load.image("logo", "./assets/img/vaccinator-title.png");
+    this.load.image("title-bg", "./img/title-background.png");
+    this.load.image("play-btn", "./img/play-btn.png");
+    this.load.image("leaderboard-btn", "./img/leaderboard-btn.png");
+    this.load.image("credits-btn", "./img/credits-btn.png");
+    this.load.audio("menu-audio", ["./sounds/bg-menu.wav"]);
+    this.load.audio('menu-select', ["./sounds/menuSelect.wav"]);
+
     var progressBar = this.add.graphics();
     var progressBox = this.add.graphics();
-    progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(240, 270, 320, 50);
-
     var width = this.cameras.main.width;
     var height = this.cameras.main.height;
     var loadingText = this.make.text({
@@ -27,7 +35,6 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
     loadingText.setOrigin(0.5, 0.5);
-
     var percentText = this.make.text({
       x: width / 2,
       y: height / 2 - 5,
@@ -38,7 +45,6 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
     percentText.setOrigin(0.5, 0.5);
-
     var assetText = this.make.text({
       x: width / 2,
       y: height / 2 + 50,
@@ -49,8 +55,9 @@ export default class PreloaderScene extends Phaser.Scene {
       },
     });
     assetText.setOrigin(0.5, 0.5);
+    progressBox.fillStyle(0x222222, 0.8);
+    progressBox.fillRect(240, 270, 320, 50);
 
-    // update progress bar
     this.load.on("progress", function (value) {
       percentText.setText(parseInt(value * 100) + "%");
       progressBar.clear();
@@ -58,25 +65,33 @@ export default class PreloaderScene extends Phaser.Scene {
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    // update file progress text
     this.load.on("fileprogress", function (file) {
-      assetText.setText("Loading asset: " + file.key);
+      console.log(file.src);
+      assetText.setText("Loading asset: " + file.src);
     });
 
-    // remove progress bar when complete
     this.load.on("complete", function () {
       progressBar.destroy();
       progressBox.destroy();
       loadingText.destroy();
       percentText.destroy();
       assetText.destroy();
+      console.log("complete");
     });
-
-    // load assets needed in our game
-    this.load.image("blueButton1", "assets/ui/blue_button02.png");
-    this.load.image("blueButton2", "assets/ui/blue_button03.png");
-    this.load.image("phaserLogo", "assets/logo.png");
   }
 
-  create() {}
+  create() {
+    this.scene.start("Title");
+    // this.add.image(380, 100, 'logo').setScale(0.75);
+    // this.time
+    //   .delayedCall(
+    //     2500,
+    //     function () {
+    //       this.cameras.main.fade(250);
+    //       this.scene.start("Title");
+    //     },
+    //     [],
+    //     this
+    //   )
+  }
 }
