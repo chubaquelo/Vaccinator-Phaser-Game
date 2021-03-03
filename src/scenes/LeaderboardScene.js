@@ -1,5 +1,5 @@
 import 'phaser';
-import scores from "../utils/leaderboard";
+import getScores from "../utils/getScores";
 
 export default class LeaderboardScene extends Phaser.Scene {
 
@@ -7,22 +7,30 @@ export default class LeaderboardScene extends Phaser.Scene {
     super("Leaderboard");
   }
 
+  preload() {
+  }
+  
   create() {
+    const scoresArr = getScores;
     let leaderBoardTitleText = this.add.text(
-      250,
+      180,
       this.sys.game.config.height / 7,
       "LeaderBoard:"
     );
-    leaderBoardTitleText.setFontSize(40);
-    scores.then((result) => {
+    leaderBoardTitleText.setFontSize(60);
+    scoresArr.then((results) => {
       let posY = 0;
-      result.forEach((element) => {
-        // this.add.text(400, 400, element.score);
-        this.add.text(280, this.sys.game.config.height / 4.2 + posY, element.user);
-        this.add.text(450, this.sys.game.config.height / 4.2 + posY, element.score);
-        posY += 25;
+      let firstTen = results.slice(0, 10);
+      firstTen.forEach((element) => {
+        this.add
+          .text(230, this.sys.game.config.height / 3.5 + posY, element.user)
+          .setFontSize(30);
+        this.add
+          .text(520, this.sys.game.config.height / 3.5 + posY, element.score)
+          .setFontSize(30);
+        posY += 35;
       });
-    });
+    }).catch = (err) => console.log("Some error happened", err);;
 
     const goToMain = () => {
       this.scene.start("Title");
@@ -31,4 +39,6 @@ export default class LeaderboardScene extends Phaser.Scene {
     this.time.delayedCall(3000, goToMain, [], this);
 
   }
+  
+  update () {}
 }
