@@ -89,16 +89,5 @@ export default class PreloaderScene extends Phaser.Scene {
 
   create() {
     this.scene.start("Title");
-    // this.add.image(380, 100, 'logo').setScale(0.75);
-    // this.time
-    //   .delayedCall(
-    //     2500,
-    //     function () {
-    //       this.cameras.main.fade(250);
-    //       this.scene.start("Title");
-    //     },
-    //     [],
-    //     this
-    //   )
   }
 }

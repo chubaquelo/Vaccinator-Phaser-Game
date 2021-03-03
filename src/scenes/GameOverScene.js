@@ -34,7 +34,7 @@ export default class GameOverScene extends Phaser.Scene {
     );
     leaderBoardTitleText.setFontSize(40);
 
-    getScores.then((result) => {
+    getScores().then((result) => {
 
       const goToMain = () => {
         this.scene.start("Title");
@@ -63,7 +63,7 @@ export default class GameOverScene extends Phaser.Scene {
           if (userName !== "" && userName !== undefined && userName !== null) {
             console.log(userName);
             setNewScore(userName, userScore).then(() => {
-              getScores.then(() => {
+              getScores().then(() => {
                 this.scene.start("Leaderboard");
               })
             });

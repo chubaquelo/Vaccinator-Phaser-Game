@@ -11,14 +11,13 @@ export default class LeaderboardScene extends Phaser.Scene {
   }
   
   create() {
-    const scoresArr = getScores;
     let leaderBoardTitleText = this.add.text(
       180,
       this.sys.game.config.height / 7,
       "LeaderBoard:"
     );
     leaderBoardTitleText.setFontSize(60);
-    scoresArr.then((results) => {
+    getScores().then((results) => {
       let posY = 0;
       let firstTen = results.slice(0, 10);
       firstTen.forEach((element) => {

@@ -1,4 +1,5 @@
-const getScores = fetch(
+const getScores = async function () { 
+  const results = await fetch(
   "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/u5fkIyDgBbkpa2zeyYIH/scores",
   {
     mode: "cors",
@@ -28,6 +29,8 @@ const getScores = fetch(
     results.sort(compareScoreValue);
     return results;
   })
-  .catch((err) => console.log("Could not reach data.", err));
+  .catch((err) => console.log("Could not reach data.", err))
+  return results;
+};
 
   export default getScores;
