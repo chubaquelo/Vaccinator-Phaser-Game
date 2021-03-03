@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const path = require('path');
 // I have to import this plugin module to use is as plugin and then as rule.
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
