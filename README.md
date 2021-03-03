@@ -10,3 +10,6 @@ The game is using an API to save high scores on leaderboard and also to show it.
 
 ![Vaccinator](https://i.imgur.com/fIybt3e.png)
 ![Vaccinator](https://i.imgur.com/wZQLNnD.png)
+
+## LIVE DEMO
+You can play the live demo here: [Play Live Demo Now](http://sergioobolevich.me/Vaccinator-Phaser-Game/dist/)
