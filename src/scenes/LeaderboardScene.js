@@ -1,25 +1,22 @@
 import 'phaser';
-import getScores from "../utils/getScores";
+import getScores from '../utils/getScores';
 
+// eslint-disable-next-line no-undef
 export default class LeaderboardScene extends Phaser.Scene {
-
   constructor() {
-    super("Leaderboard");
+    super('Leaderboard');
   }
 
-  preload() {
-  }
-  
   create() {
-    let leaderBoardTitleText = this.add.text(
+    const leaderBoardTitleText = this.add.text(
       180,
       this.sys.game.config.height / 7,
-      "LeaderBoard:"
+      'LeaderBoard:',
     );
     leaderBoardTitleText.setFontSize(60);
     getScores().then((results) => {
       let posY = 0;
-      let firstTen = results.slice(0, 10);
+      const firstTen = results.slice(0, 10);
       firstTen.forEach((element) => {
         this.add
           .text(230, this.sys.game.config.height / 3.5 + posY, element.user)
@@ -29,15 +26,12 @@ export default class LeaderboardScene extends Phaser.Scene {
           .setFontSize(30);
         posY += 35;
       });
-    }).catch = (err) => console.log("Some error happened", err);;
+    }).catch = (err) => window.console.log('Some error happened', err);
 
     const goToMain = () => {
-      this.scene.start("Title");
-    }
-    
-    this.time.delayedCall(3000, goToMain, [], this);
+      this.scene.start('Title');
+    };
 
+    this.time.delayedCall(3000, goToMain, [], this);
   }
-  
-  update () {}
 }
