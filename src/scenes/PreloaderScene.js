@@ -8,18 +8,25 @@ export default class PreloaderScene extends Phaser.Scene {
   preload() {
 
     this.load.image("logo", "./img/vaccinator-title.png");
-    this.load.image("covid", "./assets/img/covid.png");
-    this.load.image("background", "./assets/img/fondo.jpg");
-    this.load.image("illGuy", "./assets/img/ill-guy.fw.png");
-    this.load.image("title", "./assets/img/vaccinator-title.png");
-    this.load.image("vaccine", "./assets/img/vaccine.png");
-    this.load.image("logo", "./assets/img/vaccinator-title.png");
+    this.load.image("covid", "./img/covid.png");
+    this.load.image("background", "./img/fondo.jpg");
+    this.load.spritesheet("personaje", "./img/personaje.png", { frameWidth: 130, frameHeight: 191 });
+    this.load.spritesheet("illGuy", "./img/ill-guy.png", {
+      frameWidth: 87,
+      frameHeight: 185,
+    });
+    this.load.image("title", "./img/vaccinator-title.png");
+    this.load.image("vaccine", "./img/vaccine.png");
+    this.load.image("logo", "./img/vaccinator-title.png");
     this.load.image("title-bg", "./img/title-background.png");
     this.load.image("play-btn", "./img/play-btn.png");
     this.load.image("leaderboard-btn", "./img/leaderboard-btn.png");
     this.load.image("credits-btn", "./img/credits-btn.png");
+    this.load.image("city-background", "./img/City2.png");
     this.load.audio("menu-audio", ["./sounds/bg-menu.wav"]);
     this.load.audio('menu-select', ["./sounds/menuSelect.wav"]);
+    this.load.audio("game-music", ["./sounds/game-music.mp3"]);
+    this.load.audio("game-over", ["./sounds/game-over.wav"]);
 
     var progressBar = this.add.graphics();
     var progressBox = this.add.graphics();

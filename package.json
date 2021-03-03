@@ -35,6 +35,7 @@
     "crypto-browserify": "^3.12.0",
     "es-dev-server": "^2.1.0",
     "g": "^2.0.1",
+    "node-fetch": "^2.6.1",
     "phaser": "^3.52.0"
   }
 }

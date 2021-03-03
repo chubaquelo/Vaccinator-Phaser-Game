@@ -35,15 +35,28 @@ export default class TitleScene extends Phaser.Scene {
     })
 
     // Links de los botones
-    this.playBtn.on("pointerdown", () => this.scene.start("Game"), this);
+    this.playBtn.on(
+      "pointerdown",
+      () => {
+        bgAudio.stop();
+        this.scene.start("Game");
+      },
+      this
+    );
     this.leadBtn.on(
       "pointerdown",
-      () => console.log("Leadership button pressed."),
+      () => {
+        bgAudio.stop();
+        this.scene.start("Leaderboard");
+      },
       this
     );
     this.creditsBtn.on(
       "pointerdown",
-      () => this.scene.start('Credits'),
+      () => {
+        bgAudio.stop();
+        this.scene.start('Credits');
+      },
       this
     );
   }
