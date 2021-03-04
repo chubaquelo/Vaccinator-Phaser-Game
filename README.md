@@ -54,8 +54,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [Microverse](https://www.microverse.org/).
-- [The Odin Project](https://www.theodinproject.com/).
+- Game Background: https://craftpix.net/
 
 ## 📝 License
 
-This project is [MIT licensed](https://github.com/chubaquelo/re-former/blob/form/LICENSE).
+This project is [MIT licensed](https://github.com/chubaquelo/Vaccinator-Phaser-Game/blob/form/LICENSE).
