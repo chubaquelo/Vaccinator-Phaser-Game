@@ -44,7 +44,7 @@ $  git clone https://github.com/chubaquelo/Vaccinator-Phaser-Game
 Access the folder where you cloned the project in your explorer and open ./dist/index.html for direct opening.
 
 If you want to modify the source code, please install dependencies after cloning the repository.
-You can do so by calling this commands from root folder:
+You can do so by calling this commands from root folder (make sure you have Node / NPM installed on your PC):
 ```
 $  npm install
 ```
