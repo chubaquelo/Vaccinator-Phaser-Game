@@ -1,8 +1,7 @@
-import 'phaser';
+import Phaser from 'phaser';
 import { getScores } from '../utils/getScores';
 import setNewScore from '../utils/postNewLeader';
 
-// eslint-disable-next-line no-undef
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
     super('GameOver');

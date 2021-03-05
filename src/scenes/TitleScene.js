@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-import 'phaser';
+import Phaser from 'phaser';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -21,6 +20,23 @@ export default class TitleScene extends Phaser.Scene {
     const selectAudio = this.sound.add('menu-select');
     bgAudio.play();
 
+    const lowlightBtn = (btn) => {
+      btn.alpha = 0.5;
+    };
+
+    const highlightBtn = (btn) => {
+      btn.alpha = 1;
+    };
+
+    const getSceneNameForBtn = (btn) => {
+      const btnToScene = [
+        [this.playBtn, 'Game'],
+        [this.leadBtn, 'Leaderboard'],
+        [this.creditsBtn, 'Credits']];
+      const result = btnToScene.find(([btnOpt]) => btnOpt === btn)[1];
+      return result;
+    };
+
     // Hover lighting for all buttons
     Phaser.Actions.Call([this.playBtn, this.leadBtn, this.creditsBtn], (btn) => {
       btn.alpha = 0.5;
@@ -28,39 +44,20 @@ export default class TitleScene extends Phaser.Scene {
       btn.on(
         'pointerover',
         () => {
-          btn.alpha = 1;
+          highlightBtn(btn);
           selectAudio.play();
         },
         this,
       );
-      // eslint-disable-next-line no-return-assign
-      btn.on('pointerout', () => (btn.alpha = 0.5), this);
+      btn.on('pointerout', () => (lowlightBtn(btn)), this);
+      btn.on(
+        'pointerdown',
+        () => {
+          bgAudio.stop();
+          this.scene.start(getSceneNameForBtn(btn));
+        },
+        this,
+      );
     });
-
-    // Links de los botones
-    this.playBtn.on(
-      'pointerdown',
-      () => {
-        bgAudio.stop();
-        this.scene.start('Game');
-      },
-      this,
-    );
-    this.leadBtn.on(
-      'pointerdown',
-      () => {
-        bgAudio.stop();
-        this.scene.start('Leaderboard');
-      },
-      this,
-    );
-    this.creditsBtn.on(
-      'pointerdown',
-      () => {
-        bgAudio.stop();
-        this.scene.start('Credits');
-      },
-      this,
-    );
   }
 }

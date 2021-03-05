@@ -1,6 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
 
-// eslint-disable-next-line no-undef
 export default class CreditsScene extends Phaser.Scene {
   constructor() {
     super('Credits');
@@ -22,10 +21,7 @@ export default class CreditsScene extends Phaser.Scene {
       this.sys.game.config.height,
     );
 
-    // eslint-disable-next-line no-undef
     Phaser.Display.Align.In.Center(this.creditsText, this.zone);
-
-    // eslint-disable-next-line no-undef
     Phaser.Display.Align.In.Center(this.madeByText, this.zone);
 
     this.madeByText.setY(1000);

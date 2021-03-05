@@ -1,7 +1,6 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 export default {
-  // eslint-disable-next-line no-undef
   type: Phaser.AUTO,
   parent: 'game-container',
   width: 800,

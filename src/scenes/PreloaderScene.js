@@ -1,6 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
 
-// eslint-disable-next-line no-undef
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super('Preloader');
@@ -66,8 +65,7 @@ export default class PreloaderScene extends Phaser.Scene {
     progressBox.fillRect(240, 270, 320, 50);
 
     this.load.on('progress', (value) => {
-      // eslint-disable-next-line radix
-      percentText.setText(`${parseInt(value * 100)}%`);
+      percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(250, 280, 300 * value, 30);

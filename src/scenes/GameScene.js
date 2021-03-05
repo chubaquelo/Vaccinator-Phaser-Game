@@ -1,8 +1,7 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 let score = 0;
 
-// eslint-disable-next-line no-undef
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
@@ -46,7 +45,6 @@ export default class GameScene extends Phaser.Scene {
     this.covids.children.iterate((child) => {
       child.setGravityY(0);
       child.setVelocityY(100 * Math.random());
-      // child.setCollideWorldBounds(true);
     });
 
     this.eraseCovid = (personaje, item) => {
@@ -69,7 +67,6 @@ export default class GameScene extends Phaser.Scene {
         personaje.maxJumps = 1;
         this.statusText.setText(`Status: ${personaje.status}`);
         this.statusText.setColor('#e60000');
-        // this.scene.start("GameOver");
       }
     };
     this.physics.add.collider(
@@ -97,7 +94,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
-    // eslint-disable-next-line no-undef
     const isJumpJustDown = Phaser.Input.Keyboard.JustDown(this.cursors.up);
 
     if (isJumpJustDown && this.personaje.jumps < this.personaje.maxJumps) {
