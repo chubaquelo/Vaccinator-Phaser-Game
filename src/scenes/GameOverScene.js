@@ -40,10 +40,7 @@ export default class GameOverScene extends Phaser.Scene {
         this.scene.start('Title');
       };
 
-      // result[-1] is not working. Look a method to compare.
       if (userScore > result[9].score) {
-        // if (true) {
-        window.console.log('The user has to save the score.');
         const congrats = this.add.text(
           215,
           this.sys.game.config.height / 3 + 40,
@@ -61,7 +58,6 @@ export default class GameOverScene extends Phaser.Scene {
         this.time.delayedCall(3500, () => {
           const userName = window.prompt('Please enter your name to save your score.');
           if (userName !== '' && userName !== undefined && userName !== null) {
-            window.console.log(userName);
             setNewScore(userName, userScore).then(() => {
               getScores().then(() => {
                 this.scene.start('Leaderboard');
@@ -70,11 +66,9 @@ export default class GameOverScene extends Phaser.Scene {
           }
         }, [], this);
       } else {
-        window.console.log('The user DID NOT have a better score.');
         let posY = 0;
         const firstTen = result.slice(0, 10);
         firstTen.forEach((element) => {
-          // this.add.text(400, 400, element.score);
           this.add.text(
             280,
             this.sys.game.config.height / 2.3 + posY,

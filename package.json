@@ -1,11 +1,12 @@
 {
-  "name": "CRONOMETRO",
+  "name": "VACCINATOR",
   "version": "1.0.0",
-  "description": "My cronometro app.",
+  "description": "My vaccinator app.",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "start": "webpack-dev-server --mode development --open"
   },
   "keywords": [],
   "author": "Sergio Obolevich <sergioobolevich@gmail.com>",

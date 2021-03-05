@@ -74,7 +74,6 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     this.load.on('fileprogress', (file) => {
-      window.console.log(file.src);
       assetText.setText(`Loading asset: ${file.src}`);
     });
 

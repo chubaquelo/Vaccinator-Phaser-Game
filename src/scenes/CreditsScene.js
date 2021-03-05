@@ -48,10 +48,26 @@ export default class CreditsScene extends Phaser.Scene {
       duration: 5000,
       delay: 500,
       // eslint-disable-next-line func-names
-      onComplete: function () {
+      onComplete: () => {
         this.madeByTween.destroy();
         this.scene.start('Title');
-      }.bind(this),
+      },
+    });
+
+    this.goBack = this.add.text(350, 500, '< GO BACK');
+
+    this.goBack.setInteractive(
+      new Phaser.Geom.Rectangle(
+        0,
+        0,
+        this.goBack.width,
+        this.goBack.height,
+      ),
+      Phaser.Geom.Rectangle.Contains,
+    );
+
+    this.goBack.on('pointerdown', () => {
+      this.scene.start('Title');
     });
   }
 }

@@ -9,7 +9,6 @@ const setNewScore = async (userName, userScore) => {
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        // "Access-Control-Allow-Origin": "*",
       },
       method: 'POST',
       body: JSON.stringify(data),

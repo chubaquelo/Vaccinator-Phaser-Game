@@ -46,14 +46,6 @@ module.exports = {
           },
         ],
       },
-      // {
-      //   test: /\.(png|jpg)$/,
-      //   use: "file-loader",
-      //   // options: {
-      //   //   name: "[path][name].[ext]",
-      //   // },
-      //   // include: path.join(__dirname, "src"),
-      // },
     ],
   },
 };

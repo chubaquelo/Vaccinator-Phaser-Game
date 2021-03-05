@@ -11,12 +11,16 @@ export default class GameScene extends Phaser.Scene {
   create() {
     const bgAudio = this.sound.add('game-music', { loop: true });
     bgAudio.play();
-    this.add.image(
-      this.sys.game.config.width / 2,
-      this.sys.game.config.height / 2,
-      'city-background',
-    ).setScale(0.55);
-    this.personaje = this.physics.add.sprite(200, 100, 'personaje', 0).setScale(0.5);
+    this.add
+      .image(
+        this.sys.game.config.width / 2,
+        this.sys.game.config.height / 2,
+        'city-background',
+      )
+      .setScale(0.55);
+    this.personaje = this.physics.add
+      .sprite(200, 100, 'personaje', 0)
+      .setScale(0.5);
     this.personaje.status = 'Healthy'; // can be: infected / healthy / death ;
     this.personaje.jumps = 0;
     this.personaje.maxJumps = 2;
@@ -25,11 +29,7 @@ export default class GameScene extends Phaser.Scene {
     this.personaje.setCollideWorldBounds(true);
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    this.scoreText = this.add.text(
-      45,
-      20,
-      `Score: ${score}`,
-    );
+    this.scoreText = this.add.text(45, 20, `Score: ${score}`);
 
     this.statusText = this.add.text(
       this.sys.game.config.width - 200,
@@ -79,6 +79,21 @@ export default class GameScene extends Phaser.Scene {
       null,
       this,
     );
+
+    // // Tresholds are [MinScore, VirusesSpeed, pointsPerVirus]
+    this.thresholds = [
+      [1500, 1500, 10],
+      [1000, 850, 10],
+      [800, 450, 8],
+      [450, 300, 6],
+      [200, 200, 4],
+      [40, 175, 3],
+      [0, 150, 2],
+    ];
+
+    this.findVelocity = (score) => this.thresholds.find(([limit]) => score >= limit)[1];
+
+    this.findAvoidedVirusPoints = (score) => this.thresholds.find(([limit]) => score >= limit)[2];
   }
 
   update() {
@@ -104,33 +119,10 @@ export default class GameScene extends Phaser.Scene {
       if (child.y > 600 || child.y < -10) {
         child.y = -10;
         child.x = Math.random() * 800;
-        if (score > 1500) {
-          child.setVelocityY(100 * Math.random() + 1500 * Math.random());
-          child.setVelocityX(350 * Math.random() - 350 * Math.random());
-          score += 10;
-        } else if (score > 1000) {
-          child.setVelocityY(100 * Math.random() + 850 * Math.random());
-          child.setVelocityX(350 * Math.random() - 350 * Math.random());
-          score += 10;
-        } else if (score > 800) {
-          child.setVelocityY(100 * Math.random() + 450 * Math.random());
-          child.setVelocityX(350 * Math.random() - 350 * Math.random());
-          score += 8;
-        } else if (score > 450) {
-          child.setVelocityY(100 * Math.random() + 300 * Math.random());
-          child.setVelocityX(350 * Math.random() - 350 * Math.random());
-          score += 6;
-        } else if (score > 200) {
-          child.setVelocityY(100 * Math.random() + 200 * Math.random());
-          child.setVelocityX(350 * Math.random() - 350 * Math.random());
-          score += 4;
-        } else if (score > 40) {
-          child.setVelocityY(100 * Math.random() + 150 * Math.random());
-          child.setVelocityX(350 * Math.random() - 350 * Math.random());
-          score += 2;
-        } else {
-          score += 2;
-        }
+
+        child.setVelocityY(100 * Math.random() + this.findVelocity(score) * Math.random());
+        child.setVelocityX(350 * Math.random() - 350 * Math.random());
+        score += this.findAvoidedVirusPoints(score);
       }
     });
 
