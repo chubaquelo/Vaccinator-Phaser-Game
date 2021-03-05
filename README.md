@@ -60,6 +60,10 @@ To run tests you can do it with the command:
 $  npm run test
 ```
 
+### How I came up with the idea of this game?
+
+The challenge was to make a game in 5 days. My objectives at first were not clear. I wanted to make a shooter game, like the space shooter, and shoot vaccines to the viruses. But after that, I realized I had to make a platform game, not a shooter. So I changed my view. I wanted to make an infinite runner, but I wasn't so sure how to do it, so after that, I came with the idea represented in the current game. I would like to add more features but my time wasn't much, as I had to deal with some errors and problems to make my code work as pretended. For example, I can add vaccines to be collected in the ground. Or I can make a shooter. I can also add some platforms for the character to be able to walk on them. I had no further time so I decided to deliver my MVP.
+
 ## Authors
 
 👤 **Sergio Obolevich**
