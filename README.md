@@ -53,6 +53,13 @@ To compile the code inside ./src folder into ./dist folder, do so by calling web
 $  npx webpack
 ```
 
+# Run tests
+
+To run tests you can do it with the command:
+```
+$  npm run test
+```
+
 ## Authors
 
 👤 **Sergio Obolevich**
