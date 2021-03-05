@@ -1,5 +1,5 @@
 import 'phaser';
-import getScores from '../utils/getScores';
+import { getScores } from '../utils/getScores';
 import setNewScore from '../utils/postNewLeader';
 
 // eslint-disable-next-line no-undef

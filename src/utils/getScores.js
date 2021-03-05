@@ -22,4 +22,4 @@ const getScores = async () => {
   return results;
 };
 
-export default getScores;
+export { getScores, sortComparison };

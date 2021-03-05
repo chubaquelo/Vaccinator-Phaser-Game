@@ -1,5 +1,5 @@
 import 'phaser';
-import getScores from '../utils/getScores';
+import { getScores } from '../utils/getScores';
 
 // eslint-disable-next-line no-undef
 export default class LeaderboardScene extends Phaser.Scene {
