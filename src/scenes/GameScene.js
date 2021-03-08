@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { thresholds, findVelocity, findAvoidedVirusPoints } from '../utils/scoreTresholds';
 
 let score = 0;
 
@@ -76,21 +77,6 @@ export default class GameScene extends Phaser.Scene {
       null,
       this,
     );
-
-    // // Tresholds are [MinScore, VirusesSpeed, pointsPerVirus]
-    this.thresholds = [
-      [1500, 1500, 10],
-      [1000, 850, 10],
-      [800, 450, 8],
-      [450, 300, 6],
-      [200, 200, 4],
-      [40, 175, 3],
-      [0, 150, 2],
-    ];
-
-    this.findVelocity = (score) => this.thresholds.find(([limit]) => score >= limit)[1];
-
-    this.findAvoidedVirusPoints = (score) => this.thresholds.find(([limit]) => score >= limit)[2];
   }
 
   update() {
@@ -116,9 +102,9 @@ export default class GameScene extends Phaser.Scene {
         child.y = -10;
         child.x = Math.random() * 800;
 
-        child.setVelocityY(100 * Math.random() + this.findVelocity(score) * Math.random());
+        child.setVelocityY(100 * Math.random() + findVelocity(score) * Math.random());
         child.setVelocityX(350 * Math.random() - 350 * Math.random());
-        score += this.findAvoidedVirusPoints(score);
+        score += findAvoidedVirusPoints(score);
       }
     });
 

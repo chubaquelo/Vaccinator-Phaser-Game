@@ -1,6 +1,5 @@
-/* eslint-disable import/no-unresolved, import/extensions */
 
-import 'phaser';
+import Phaser from 'phaser';
 import config from './Config/config';
 import GameScene from './Scenes/GameScene';
 import BootScene from './Scenes/BootScene';
@@ -10,7 +9,6 @@ import GameOverScene from './Scenes/GameOverScene';
 import CreditsScene from './Scenes/CreditsScene';
 import PreloaderScene from './Scenes/PreloaderScene';
 
-// eslint-disable-next-line no-undef
 class Game extends Phaser.Game {
   constructor() {
     super(config);

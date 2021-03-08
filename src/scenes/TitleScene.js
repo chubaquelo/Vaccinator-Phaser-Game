@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { lowlightBtn, highlightBtn } from '../utils/titleMenuHighlight';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -19,14 +20,6 @@ export default class TitleScene extends Phaser.Scene {
     const bgAudio = this.sound.add('menu-audio', { loop: true });
     const selectAudio = this.sound.add('menu-select');
     bgAudio.play();
-
-    const lowlightBtn = (btn) => {
-      btn.alpha = 0.5;
-    };
-
-    const highlightBtn = (btn) => {
-      btn.alpha = 1;
-    };
 
     const getSceneNameForBtn = (btn) => {
       const btnToScene = [
