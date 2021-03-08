@@ -4,7 +4,7 @@
   "description": "My vaccinator app.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --collectCoverage",
+    "test": "jest",
     "webpack": "webpack",
     "start": "webpack-dev-server --mode development --open"
   },

@@ -33,15 +33,26 @@ describe('TitleScene menu buttons lighting', () => {
   it('lowlights highlights', () => {
     lowlightBtn(btn);
     expect(btn.alpha).toEqual(0.5);
+    expect(btn.alpha).not.toEqual(1);
   });
   it('highlights button', () => {
     highlightBtn(btn);
     expect(btn.alpha).toEqual(1);
+    expect(btn.alpha).not.toEqual(0.5);
   });
 });
 
 describe('Check scoring threshold helpers', () => {
   it('thresholds steps are as expected', () => {
+    const notExpected = [
+      [1500, 1830, 10],
+      [1000, 250, 20],
+      [800, 350, 8],
+      [450, 600, 16],
+      [200, 100, 44],
+      [40, 125, 3],
+      [0, 160, 2],
+    ];
     const expectedSteps = [
       [1500, 1500, 10],
       [1000, 850, 10],
@@ -52,13 +63,16 @@ describe('Check scoring threshold helpers', () => {
       [0, 150, 2],
     ];
     expect(thresholds).toEqual(expectedSteps);
+    expect(thresholds).not.toEqual(notExpected);
   });
   it('Find correct velocity for set score.', () => {
     const vel = findVelocity(148);
     expect(vel).toEqual(175);
+    expect(vel).not.toEqual(275);
   });
   it('Correct points per virus for set score.', () => {
     const vel = findAvoidedVirusPoints(148);
     expect(vel).toEqual(3);
+    expect(vel).not.toEqual(5);
   });
 });

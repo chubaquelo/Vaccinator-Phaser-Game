@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { thresholds, findVelocity, findAvoidedVirusPoints } from '../utils/scoreTresholds';
+import { findVelocity, findAvoidedVirusPoints } from '../utils/scoreTresholds';
 
 let score = 0;
 
