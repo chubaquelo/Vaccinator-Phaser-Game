@@ -1,11 +1,11 @@
 import 'jest-canvas-mock';
-import GameScene from '../Scenes/GameScene';
-import BootScene from '../Scenes/BootScene';
-import CreditsScene from '../Scenes/CreditsScene';
-import GameOverScene from '../Scenes/GameOverScene';
-import LeaderboardScene from '../Scenes/LeaderboardScene';
-import PreloaderScene from '../Scenes/PreloaderScene';
-import TitleScene from '../Scenes/TitleScene';
+import GameScene from '../scenes/GameScene';
+import BootScene from '../scenes/BootScene';
+import CreditsScene from '../scenes/CreditsScene';
+import GameOverScene from '../scenes/GameOverScene';
+import LeaderboardScene from '../scenes/LeaderboardScene';
+import PreloaderScene from '../scenes/PreloaderScene';
+import TitleScene from '../scenes/TitleScene';
 
 
 describe('Scenes are functions test', () => {
