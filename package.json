@@ -1,40 +1,50 @@
 {
-  "name": "CRONOMETRO",
+  "name": "VACCINATOR",
   "version": "1.0.0",
-  "description": "My cronometro app.",
+  "description": "My vaccinator app.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
-    "webpack": "webpack"
+    "test": "jest",
+    "webpack": "webpack",
+    "start": "webpack-dev-server --mode development --open"
   },
   "keywords": [],
   "author": "Sergio Obolevich <sergioobolevich@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.1",
+    "@babel/plugin-transform-runtime": "^7.13.9",
     "@babel/preset-env": "^7.13.5",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.2.0",
     "jest": "^26.6.3",
+    "jest-canvas-mock": "^2.3.1",
     "mini-css-extract-plugin": "^1.3.8",
     "node-sass": "^5.0.0",
     "postcss": "^8.1.0",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
-    "stylelint": "^13.11.0",
+    "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "^3.19.0",
+    "stylelint-scss": "^3.17.2",
     "webpack": "^5.24.1",
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.13.9",
     "crypto-browserify": "^3.12.0",
     "es-dev-server": "^2.1.0",
     "g": "^2.0.1",
+    "node-fetch": "^2.6.1",
     "phaser": "^3.52.0"
   }
 }
